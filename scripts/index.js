@@ -1,29 +1,30 @@
 console.log(`You're in`);
-
+const URL = `https://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID=${OWKey}`;
+// const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${OWKey}`;
 const city = document.querySelector('[data-button]');
-// console.log(city);
-const temperatureDiv = document.querySelector('[data-tempContainer]');
+const getTemp = document.querySelector('[data-tempdisplay]');
 
 city.addEventListener('click', getWeather);
 
 function getWeather () {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID=dee07fae47d614b4f9cb0a8cd0a2cfeb')
+    fetch(URL)
         .then((r) => {return r.json()})
-        .then(extractMainTemp)
+        .then(extractTemps)
         .then(displayTemp)
 }
 
-function extractMainTemp (data) {
-    let mainTemp = data.main.temp;
-    // console.log(mainTemp);
-    return mainTemp;
+function extractTemps (obj) {
+    let temp = obj.main.temp;
+    let degree = ((temp - 273.15) * 9/5 +32).toFixed(1);
+    // console.log(degree);
+    return degree;
 }
 
 function displayTemp (larry) {
     // console.log(larry);
     let showTemp = document.createElement('p');
-    showTemp.textContent = larry;
+    showTemp.textContent = `Temperature: ${larry} ° F`;
     // console.log(showTemp);
-    temperatureDiv.appendChild(showTemp);
+    getTemp.appendChild(showTemp);
 }
 
