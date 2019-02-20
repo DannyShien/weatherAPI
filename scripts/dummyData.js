@@ -1,4 +1,5 @@
-const dummyData = {
+const dummyData = 
+{
     "coord": {
         "lon": -84.39,
         "lat": 33.75
