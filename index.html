@@ -7,13 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <button data-button>Get Atl weather</button>
-    </div>
-    <div>
+    <section>
+        <div class='title' id='title'>
+            <h1>Weather</h1>
+        </div>
+        <div>
+            <p>What's the weather in your city? </p>
+            <form id='form-search'>
+                <input type="text" name='search' placeholder='city' data-userInput>
+                <input type="submit" value='Search' data-search>
+            </form>
+        </div>
+    </section>
+
+    <section>
         <ul data-tempDisplay data-minTemp data-maxTemp>
+            <li></li>
+
         </ul>
-    </div>
+    </section>
     
 
     <!-- <script src="scripts/dummyData.js"></script> -->
