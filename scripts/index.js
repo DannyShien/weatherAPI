@@ -1,75 +1,64 @@
+// Takes user input
 const userInput = document.forms['form-search'];
 
 userInput.addEventListener('submit', function(e){
     e.preventDefault();
     const city = userInput.querySelector('input[type="text"]').value;
     console.log(`CITY SEARCHED: `, city)
-    // const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${OWKey}`;
-    
-    // fetch(URL)
-    // .then(r => r.json())
-    // .then(getWeather => {
-    //     console.log(getWeather)
-    // })
+    // Takes userInput(city) and places it into URL
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${OWKey}`;
+    // Fetches URL with the city input
+    fetch(URL)
+        .then(r => r.json())
+        .then(weatherInfo)
+        // .then(getIcon)
+        // .then(displayWeather)
 });
 
-function getWeather (userInput) {
-    console.log(userInput)
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${OWKey}`;
+function weatherInfo(obj) {
+    console.log(obj)
+    // Grabbing name of city
+    let cityName = obj.name;
+
+    // Grabbing weather
+    let mainTemp = ((obj.main.temp - 273.15) * 9/5 +32).toFixed(1);
+    // let lowTemp = ((obj.main.temp_min - 273.15) * 9/5 +32).toFixed(1);
+    // let highTemp = ((obj.main.temp_max - 273.15) * 9/5 +32).toFixed(1);
+
+    // Grabbing description
+    let cond = obj.weather.map(condition => {return condition.main});
+    let desc = obj.weather.map(description => {return description.desctiption});
+
+    let humidity = (obj.main.humidity);
+
+    let windSpeed = (obj.wind.speed);
+
+    let icon  = obj.weather.map(img => {return img.icon})
     
-    fetch(URL)
-    .then(r => r.json())
-    .then(weatherObj => {
-        console.log(weatherObj)
-    })
+    let weather = [];
+    weather.push(cityName);
+    weather.push(mainTemp);
+    weather.push(humidity);
+    weather.push(windSpeed);
+    weather.push(cond);
+    weather.push(desc);
+    weather.push(icon);
+
+    return weather;
 }
 
+// function getIcon(icon) {
+//     console.log(icon);
+//     fetch(`http://openweathermap.org/img/w/${icon}.png`)
+//         .then(r => r.json())
+//         .then(weatherIcon => {
 
-
-
-
-// function getWeatherInfo() {
-//     console.log('User info submitted');
-
-//     fetch(URL)
-//     .then(r => r.json())
-//     .then(weatherData => {
-//         const city = document.querySelector('[data-userInput]').value;
-//     })
+//         });
 // }
 
 
-// const city = document.querySelector('[data-button]');
-// const getMinTemp = document.querySelector('[data-minTemp]');
-// const getMaxTemp = document.querySelector('[data-maxTemp]');
 
-// city.addEventListener('click', getWeather);
 
-// function getWeather () {
-//     fetch(URL)
-//         .then((r) => {return r.json()})
-//         .then(extractTemps)
-//         .then(displayTemp)
-// }
-
-// function extractTemps (obj) {
-//     // debug    ger;
-//     let temp = obj.main.temp;
-//     let degree = ((temp - 273.15) * 9/5 +32).toFixed(1);
-
-//     let minTemp = obj.main.temp_min;
-//     let minDeg = ((minTemp - 273.15) * 9/5 +32).toFixed(1);
-
-//     let maxTemp = obj.main.temp_max;
-//     let maxDeg = ((maxTemp - 273.15) * 9/5 +32).toFixed(1);
-
-//     let temps = [];
-//     temps.push(degree);
-//     temps.push(minDeg);
-//     temps.push(maxDeg);
-
-//     return temps;
-// }
 
 // function displayTemp (larry) {
 //     // debugger;
