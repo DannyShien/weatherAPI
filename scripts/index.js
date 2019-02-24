@@ -12,7 +12,7 @@ userInput.addEventListener('submit', function(e){
         .then(r => r.json())
         .then(weatherInfo)
         // .then(getIcon)
-        // .then(displayWeather)
+        .then(displayWeather)
 });
 
 function weatherInfo(obj) {
@@ -59,7 +59,7 @@ const display = document.querySelector('[data-display]');
 const city = document.querySelector('[data-title]');
 
 function displayWeather(weather) {
-    console.log(display);
+    console.log(weather);
 
     // Creating HTML Elements
     const name = document.createElement('h1');
@@ -68,9 +68,13 @@ function displayWeather(weather) {
 
     // Add content
     name.textContent = weather[0];
+    li.textContent = weather[1];
+    li.textContent = ``
 
     // Appending to DOM
-    city.appendChild(name)
+    city.appendChild(name);
+    display.appendChild(li);
+
 
     
 }
