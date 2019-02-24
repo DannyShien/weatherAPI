@@ -36,14 +36,13 @@ function weatherInfo(obj) {
     let icon  = obj.weather.map(img => {return img.icon})
     
     let weather = [];
-    weather.push(cityName);
-    weather.push(mainTemp);
-    weather.push(humidity);
-    weather.push(windSpeed);
-    weather.push(cond);
-    weather.push(desc);
-    weather.push(icon);
-
+        weather.push(cityName);
+        weather.push(mainTemp);
+        weather.push(humidity);
+        weather.push(windSpeed);
+        weather.push(cond);
+        weather.push(desc);
+        weather.push(icon);
     return weather;
 }
 
@@ -56,9 +55,25 @@ function weatherInfo(obj) {
 //         });
 // }
 
+const display = document.querySelector('[data-display]');
+const city = document.querySelector('[data-title]');
 
+function displayWeather(weather) {
+    console.log(display);
 
+    // Creating HTML Elements
+    const name = document.createElement('h1');
+    const info = document.createElement('div');
+    const li = document.createElement('li');
 
+    // Add content
+    name.textContent = weather[0];
+
+    // Appending to DOM
+    city.appendChild(name)
+
+    
+}
 
 // function displayTemp (larry) {
 //     // debugger;
