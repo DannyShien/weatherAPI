@@ -11,73 +11,93 @@ userInput.addEventListener('submit', function(e){
     fetch(URL)
         .then(r => r.json())
         .then(weatherInfo)
-        // .then(getIcon)
         .then(displayWeather)
+        // .then(getIcon) // - Do not need
 });
 
-function weatherInfo(obj) {
-    console.log(obj)
-    // Grabbing name of city
+
+function weatherInfo(obj) {                                         
+    // console.log(obj)
+    // GRABBING NAME OF CITY
     let cityName = obj.name;
 
-    // Grabbing weather
+    // GRABBING WEATHER
     let mainTemp = ((obj.main.temp - 273.15) * 9/5 +32).toFixed(1);
     // let lowTemp = ((obj.main.temp_min - 273.15) * 9/5 +32).toFixed(1);
     // let highTemp = ((obj.main.temp_max - 273.15) * 9/5 +32).toFixed(1);
 
-    // Grabbing description
+    // GRABBING DESCRIPTION/OTHERS
     let cond = obj.weather.map(condition => {return condition.main});
-    let desc = obj.weather.map(description => {return description.desctiption});
+    let desc = obj.weather.map(description => {return description.description});
 
     let humidity = (obj.main.humidity);
 
     let windSpeed = (obj.wind.speed);
 
-    let icon  = obj.weather.map(img => {return img.icon})
-    
+    let iconCode  = obj.weather.map(img => {return img.icon})
+
+    // PUTTING VARIABLES INTO AN ARRAY
     let weather = [];
-        weather.push(cityName);
-        weather.push(mainTemp);
-        weather.push(humidity);
-        weather.push(windSpeed);
-        weather.push(cond);
-        weather.push(desc);
-        weather.push(icon);
-    return weather;
+        weather.push(cityName);                 //- 0 NAME
+        weather.push(mainTemp);                 //- 1 TEMP
+        weather.push(humidity);                 //- 2 HUMIDITY
+        weather.push(windSpeed);                //- 3 WINDSPEED
+        weather.push(cond);                     //- 4 COND
+        weather.push(desc);                     //- 5 DESC
+        weather.push(getIcon(iconCode));        //- 6 ICONCODE
+        return weather;
 }
 
-// function getIcon(icon) {
-//     console.log(icon);
-//     fetch(`http://openweathermap.org/img/w/${icon}.png`)
-//         .then(r => r.json())
-//         .then(weatherIcon => {
 
-//         });
-// }
+function getIcon(icon) {
+    // console.log(icon)
+    let code = icon[0]
+    return `http://openweathermap.org/img/w/${code}.png`;
+}
 
-const display = document.querySelector('[data-display]');
+
 const city = document.querySelector('[data-title]');
+const display = document.querySelector('[data-display]');
 
 function displayWeather(weather) {
     console.log(weather);
 
-    // Creating HTML Elements
+    // Appending city name to document
     const name = document.createElement('h1');
-    const info = document.createElement('div');
-    const li = document.createElement('li');
-
-    // Add content
     name.textContent = weather[0];
-    li.textContent = weather[1];
-    li.textContent = ``
-
-    // Appending to DOM
     city.appendChild(name);
-    display.appendChild(li);
 
+    // Appending temp to document
+    const temp = document.createElement('li');
+    temp.textContent = `${weather[1]} °`;
+    display.appendChild(temp);
 
+    // Appending icon to document
     
+
+    // Appending condition to document
+    const condition = document.createElement('li');
+    condition.textContent = `${weather[4]}`;
+    display.appendChild(condition);
+
+    // Appending description to document
+    const description = document.createElement('li');
+    description.textContent = `${weather[5]} `;
+    display.appendChild(description);
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
 
 // function displayTemp (larry) {
 //     // debugger;
