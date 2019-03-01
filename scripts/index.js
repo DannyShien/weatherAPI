@@ -4,9 +4,14 @@ const userInput = document.forms['form-search'];
 userInput.addEventListener('submit', function(e){
     e.preventDefault();
     const city = userInput.querySelector('input[type="text"]').value;
+    // if (userInput !== city.length) {
+    //     alert('Please privide a correct input')
+    // } else {
+    //     console.log('Search accepted!');
+    // }
     console.log(`CITY SEARCHED: `, city)
     // Takes userInput(city) and places it into URL
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${OWKey}`;
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${OWKey}`;
     // Fetches URL with the city input
     fetch(URL)
         .then(r => r.json())
@@ -17,14 +22,15 @@ userInput.addEventListener('submit', function(e){
 
 
 function weatherInfo(obj) {                                         
-    // console.log(obj)
+    console.log(obj)
     // GRABBING NAME OF CITY
     let cityName = obj.name;
 
     // GRABBING WEATHER
-    let mainTemp = ((obj.main.temp - 273.15) * 9/5 +32).toFixed(1);
-    // let lowTemp = ((obj.main.temp_min - 273.15) * 9/5 +32).toFixed(1);
-    // let highTemp = ((obj.main.temp_max - 273.15) * 9/5 +32).toFixed(1);
+    let mainTemp = obj.main.temp
+    console.log(mainTemp)
+    // let mainTemp = ((obj.main.temp - 273.15) * 9/5 +32).toFixed(1);
+
 
     // GRABBING DESCRIPTION/OTHERS
     let cond = obj.weather.map(condition => {return condition.main});
@@ -33,6 +39,8 @@ function weatherInfo(obj) {
     let humidity = (obj.main.humidity);
 
     let windSpeed = (obj.wind.speed);
+
+    let clouds = (obj.clouds.all)
 
     let iconCode  = obj.weather.map(img => {return img.icon})
 
@@ -50,9 +58,9 @@ function weatherInfo(obj) {
 
 
 function getIcon(icon) {
-    // console.log(icon)
+    console.log(icon)
     let code = icon[0]
-    return `http://openweathermap.org/img/w/${code}.png`;
+    return `http://openweathermap.org/img/w/${code}.png`; //this isn't grabbing the icon
 }
 
 
@@ -63,28 +71,39 @@ function displayWeather(weather) {
     console.log(weather);
 
     // Appending city name to document
-    const name = document.createElement('h1');
-    name.textContent = weather[0];
-    city.appendChild(name);
+    const showName = document.createElement('h1');
+    showName.textContent = weather[0];
+    city.appendChild(showName);
 
     // Appending temp to document
-    const temp = document.createElement('li');
-    temp.textContent = `${weather[1]} °`;
-    display.appendChild(temp);
+    const showTemp = document.createElement('li');
+    showTemp.textContent = `${weather[1]} °`;
+    display.appendChild(showTemp);
 
     // Appending icon to document
-    
+    const showIcon = document.createElement('img');
+    showIcon.textContent = `${weather[6]}`;
+    display.appendChild(showIcon);
 
     // Appending condition to document
-    const condition = document.createElement('li');
-    condition.textContent = `${weather[4]}`;
-    display.appendChild(condition);
+    // const showCondition = document.createElement('li');
+    // showCondition.textContent = `${weather[4]}`;
+    // display.appendChild(showCondition);
 
     // Appending description to document
-    const description = document.createElement('li');
-    description.textContent = `${weather[5]} `;
-    display.appendChild(description);
+    const showDescription = document.createElement('li');
+    showDescription.textContent = `${weather[5]} `;
+    display.appendChild(showDescription);
 
+    // Appending humidity to document 
+    const showHumidity = document.createElement('li'); 
+    showHumidity.textContent = `${weather[2]} %`;
+    display.appendChild(showHumidity);
+
+    // Appending windspeet to document
+    const showWindSpeed = document.createElement('li');
+    showWindSpeed.textContent = `${weather[3]} °`;
+    display.appendChild(showWindSpeed);
 
 
 
