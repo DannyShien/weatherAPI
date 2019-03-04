@@ -6,27 +6,21 @@
 body {
     display: flex; 
     flex-direction: column;
-    /* justify-content: center;  */
     align-items: center;
     height: 100vh;
-    /* background-color:  */
 }
 
 .weather {
     display: flex; 
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    /* justify-content: space-around;    */
-    width: 60vw;
+    width: 40vw;
     height: 30vh;
     padding: 5px;
-    outline: 3px solid aliceblue;
+    /* outline: 3px solid aliceblue; */
 }
 .weather div:first-child {
-    /* outline: 2px solid red;  */
     margin-top: 30px; 
-    
 }
 .title h1 {
     font-size: 200%;
@@ -37,10 +31,8 @@ body {
     align-items: center; 
     justify-content: center; 
     margin-top: 10px;
-    /* outline: 2px solid blue;  */
     width: 50vh;
     height: 100vh;
-    
 }
 .search form {
     margin-top: 12px; 
@@ -50,7 +42,6 @@ form {
     align-items: center;
     justify-content: space-evenly;
     width: 25vw;
-    /* outline: 1px solid orange; */
 }
 form input:first-child {
     padding-left: 6px;
@@ -58,16 +49,62 @@ form input:first-child {
     border-style: groove;
     height: 23px; 
     font-size: 90%;
-    /* color: rgb(0, 0, 0); */
 }
 /* form input:last-child {
     
 } */
 
+
 .display {
     display: flex; 
     flex-direction: column; 
+    width: 40vw;
+    margin-top: 10px; 
+    /* background-color: aliceblue; */
+}
+
+.top-display {
+    display: flex; 
+    justify-content: space-around;
+}
+.top-display div:first-child {    
+    display: flex; 
+    flex-direction: column;
     align-items: center; 
-    background-color: aliceblue;
-    width: 60vw;
+    justify-content: center;
+    width: 20vw;
+}
+.top-display h1 {
+    font-size: 120%;
+}
+.top-display p {
+    font-size: 80%;
+}
+.top-display div:last-child {
+    display: flex; 
+    justify-content: center;
+    width: 15vw;
+}
+.top-display div:last-child img {
+    height: 100px; 
+}
+
+.bottom-display {
+    display: flex; 
+    justify-content: space-around;
+}
+.bottom-display div p{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 200%;
+    /* background-color: white; */
+    width: 15vw;
+    height: 10vh;
+}
+.bottom-display ul {
+    list-style-type: none;
+}
+.bottom-display ul li {
+    font-size: 80%;
 }

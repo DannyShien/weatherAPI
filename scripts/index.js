@@ -71,7 +71,7 @@ function getIcon(icon) {
 
 const city = document.querySelector('[data-title]');
 const icon = document.querySelector('[data-icon]');
-const temp = document.querySelector('[data-temp');
+const temp = document.querySelector('[data-temp]');
 const details = document.querySelector('[data-details]');
 
 function displayWeather(weather) {
@@ -109,17 +109,17 @@ function displayWeather(weather) {
 
     // Appending HUMIDITY to document 
     const showHumidity = document.createElement('li'); 
-    showHumidity.textContent = `${weather[2]} %`;
+    showHumidity.textContent = `Humidity ${weather[2]} %`;
     details.appendChild(showHumidity);
 
     // Appending WINDSPEED to document
     const showWindSpeed = document.createElement('li');
-    showWindSpeed.textContent = `${weather[3]} m/h`;
+    showWindSpeed.textContent = `Windspeed ${weather[3]} m/h`;
     details.appendChild(showWindSpeed);
 
     // Appdning CLOUDS to document
     const showClouds = document.createElement('li');
-    showClouds.textContent = `${weather[7]}° cloudiness`;
+    showClouds.textContent = `Clouds ${weather[7]}° cloudiness`;
     details.appendChild(showClouds);
 
     // Appending CONDITION to document
