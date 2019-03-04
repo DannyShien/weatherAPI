@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/index.css">
+    <title>AWA</title>
 </head>
 <body>
-    <section>
-        <div class='title' id='title'>
-            <h1>Weather</h1>
+    <section class='weather'>
+        <div class='title'>
+            <h1>Another Weather-App</h1>
         </div>
-        <div>
-            <p>Search by zipcode </p>
+        <div class='search'>
+            <h3>Search by city name or zipcode </h3>
             <form id='form-search'>
                 <input type="text" name='search' placeholder='city' data-userInput>
                 <input type="submit" value='Search' data-search>
@@ -20,31 +21,30 @@
         </div>
     </section>
 
-    <section >
-        <div>
-            <div data-title>
-                <!-- name -->
-                <!-- desc -->
+    <section class='display'>
+        <div class='top-display'>
+            <div class='title' data-title>
+                <h1>Atlanta</h1>
+                <p>sunny</p> 
             </div>
             <div data-icon>
-                <!-- icon -->
+                icon
             </div>
         </div>
-        <div>
+        <div class='bottom-display'>
             <div data-temp>
-                <!-- mainTemp -->
+                80° F
             </div>
             <ul data-details>
-                <!-- humidity -->
-                <!-- windSpeed -->
-                <!-- clouds -->
+                20%
+                10 m/h
+                20%
                 <!-- cond -->
             </ul>
         </div>
     </section>
     
 
-    <!-- <script src="scripts/dummyData.js"></script> -->
     <script src="scripts/config.js"></script>
     <script src="scripts/index.js"></script>
 </body>

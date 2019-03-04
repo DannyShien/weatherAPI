@@ -77,13 +77,14 @@ const details = document.querySelector('[data-details]');
 function displayWeather(weather) {
     // ==================================
     // ===== ===== TOP HEADER ===== =====
+
     // Appending CITY NAME to document
     const showName = document.createElement('h1');
     showName.textContent = weather[0];
     city.appendChild(showName);
 
     // Appending DESCRIPTION to document
-    const showDescription = document.createElement('li');
+    const showDescription = document.createElement('p');
     showDescription.textContent = `${weather[5]} `;
     city.appendChild(showDescription);
 
@@ -100,8 +101,9 @@ function displayWeather(weather) {
 
     // =====================================
     // ===== ===== BOTTOM HEADER ===== =====
+    
     // Appending TEMP to document
-    const showTemp = document.createElement('li');
+    const showTemp = document.createElement('p');
     showTemp.textContent = `${weather[1]} °F`;
     temp.appendChild(showTemp);
 

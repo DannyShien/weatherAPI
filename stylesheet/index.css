@@ -1,0 +1,73 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    font-size: 20px; 
+}
+body {
+    display: flex; 
+    flex-direction: column;
+    /* justify-content: center;  */
+    align-items: center;
+    height: 100vh;
+    /* background-color:  */
+}
+
+.weather {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: space-around;    */
+    width: 60vw;
+    height: 30vh;
+    padding: 5px;
+    outline: 3px solid aliceblue;
+}
+.weather div:first-child {
+    /* outline: 2px solid red;  */
+    margin-top: 30px; 
+    
+}
+.title h1 {
+    font-size: 200%;
+}
+.weather div:last-child {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 10px;
+    /* outline: 2px solid blue;  */
+    width: 50vh;
+    height: 100vh;
+    
+}
+.search form {
+    margin-top: 12px; 
+}
+form {
+    display: flex; 
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25vw;
+    /* outline: 1px solid orange; */
+}
+form input:first-child {
+    padding-left: 6px;
+    border-radius: 5px; 
+    border-style: groove;
+    height: 23px; 
+    font-size: 90%;
+    /* color: rgb(0, 0, 0); */
+}
+/* form input:last-child {
+    
+} */
+
+.display {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    background-color: aliceblue;
+    width: 60vw;
+}
