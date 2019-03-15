@@ -19,6 +19,7 @@ userInput.addEventListener('submit', function(e){
         .then(r => r.json())
         .then(weatherInfo)
         // `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&cnt=7&units=imperial&APPID=$${OWKey}`
+        .then(forecast)
         .then(displayWeather)
         // .then(getIcon) // - Do not need
 });
@@ -69,8 +70,14 @@ function getIcon(icon) {
     return iCode
 }
 
+function forecast(city) {
+    let cityName = city.map(obj[0]);
 
-const city = document.querySelector('[data-title]');
+    console.log(obj);
+}
+
+
+const city = document.querySelector('[data-city]');
 const icon = document.querySelector('[data-icon]');
 const temp = document.querySelector('[data-temp]');
 const details = document.querySelector('[data-details]');
