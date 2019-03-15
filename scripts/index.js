@@ -18,6 +18,7 @@ userInput.addEventListener('submit', function(e){
     fetch(URL)
         .then(r => r.json())
         .then(weatherInfo)
+        // `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&cnt=7&units=imperial&APPID=$${OWKey}`
         .then(displayWeather)
         // .then(getIcon) // - Do not need
 });
@@ -73,10 +74,11 @@ const city = document.querySelector('[data-title]');
 const icon = document.querySelector('[data-icon]');
 const temp = document.querySelector('[data-temp]');
 const details = document.querySelector('[data-details]');
+const type = document.querySelector('[data-name]');
 
 function displayWeather(weather) {
     // ==================================
-    // ===== ===== TOP HEADER ===== =====
+    // ===== ===== TOP DISPLAY ===== =====
 
     // Appending CITY NAME to document
     const showName = document.createElement('h1');
@@ -100,7 +102,7 @@ function displayWeather(weather) {
 
 
     // =====================================
-    // ===== ===== BOTTOM HEADER ===== =====
+    // ===== ===== BOTTOM DISPLAY ===== =====
     
     // Appending TEMP to document
     const showTemp = document.createElement('p');
@@ -108,18 +110,27 @@ function displayWeather(weather) {
     temp.appendChild(showTemp);
 
     // Appending HUMIDITY to document 
+    const humidity = document.createElement('li');
     const showHumidity = document.createElement('li'); 
-    showHumidity.textContent = `Humidity ${weather[2]} %`;
+    humidity.textContent = `Humidity`;
+    showHumidity.textContent = `${weather[2]} %`;
+    type.appendChild(humidity);
     details.appendChild(showHumidity);
 
     // Appending WINDSPEED to document
+    const windSpeed = document.createElement('li');
     const showWindSpeed = document.createElement('li');
-    showWindSpeed.textContent = `Windspeed ${weather[3]} m/h`;
+    windSpeed.textContent = `Windspeed`;
+    showWindSpeed.textContent = `${weather[3]} m/h`;
+    type.appendChild(windSpeed);
     details.appendChild(showWindSpeed);
 
     // Appdning CLOUDS to document
+    const clouds = document.createElement('li');
     const showClouds = document.createElement('li');
-    showClouds.textContent = `Clouds ${weather[7]}° cloudiness`;
+    clouds.textContent = `Cloudiness`;
+    showClouds.textContent = `${weather[7]}°`;
+    type.appendChild(clouds);
     details.appendChild(showClouds);
 
     // Appending CONDITION to document

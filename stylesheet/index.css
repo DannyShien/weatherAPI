@@ -58,14 +58,18 @@ form input:first-child {
 .display {
     display: flex; 
     flex-direction: column; 
-    width: 40vw;
+    width: 50vw;
     margin-top: 10px; 
-    /* background-color: aliceblue; */
+    border: 5px;
+    border-style: groove; 
 }
-
+.display h2 {
+    text-align: center;
+}
 .top-display {
     display: flex; 
     justify-content: space-around;
+    height: 15vh;
 }
 .top-display div:first-child {    
     display: flex; 
@@ -74,6 +78,10 @@ form input:first-child {
     justify-content: center;
     width: 20vw;
 }
+.top-display div:first-child p { 
+    text-align: center;
+    margin-top: 5px; 
+}    
 .top-display h1 {
     font-size: 120%;
 }
@@ -83,7 +91,7 @@ form input:first-child {
 .top-display div:last-child {
     display: flex; 
     justify-content: center;
-    width: 15vw;
+    width: 20vw;
 }
 .top-display div:last-child img {
     height: 100px; 
@@ -92,18 +100,42 @@ form input:first-child {
 .bottom-display {
     display: flex; 
     justify-content: space-around;
+    height: 15vh;
+}
+.bottom-display div:first-child {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 20vw;
+}
+.bottom-display div:last-child {
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+}
+.bottom-display div:last-child ul:first-child {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.bottom-display div:last-child ul:last-child {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .bottom-display div p{
     display: flex; 
     justify-content: center; 
     align-items: center; 
     font-size: 200%;
+    font-weight: 200;
     /* background-color: white; */
     width: 15vw;
     height: 10vh;
 }
 .bottom-display ul {
     list-style-type: none;
+
 }
 .bottom-display ul li {
     font-size: 80%;
