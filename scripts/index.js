@@ -19,9 +19,9 @@ userInput.addEventListener('submit', function(e){
         .then(r => r.json())
         .then(weatherInfo)
         // `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&cnt=7&units=imperial&APPID=$${OWKey}`
-        .then(forecast)
+        // .then(forecast)
         .then(displayWeather)
-        // .then(getIcon) // - Do not need
+
 });
 
 
@@ -64,11 +64,11 @@ function weatherInfo(obj) {
 }
 
 
-function getIcon(icon) {
-    let code = icon[0]
-    let iCode = `http://openweathermap.org/img/w/${code}.png`;
-    return iCode
-}
+// function getIcon(icon) {
+//     let code = icon[0]
+//     let iCode = `http://openweathermap.org/img/w/${code}.png`;
+//     return iCode
+// }
 
 function forecast(city) {
     let cityName = city.map(obj[0]);
