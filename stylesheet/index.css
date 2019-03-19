@@ -47,12 +47,12 @@ form input:first-child {
     padding-left: 6px;
     border-radius: 5px; 
     border-style: groove;
-    height: 23px; 
+    height: 2.8vh; 
     font-size: 90%;
 }
-/* form input:last-child {
-    
-} */
+form input:last-child {
+    height: 2.8 vw;
+}
 
 
 .display {
@@ -139,4 +139,35 @@ form input:first-child {
 }
 .bottom-display ul li {
     font-size: 80%;
+}
+
+@media only screen and (max-width: 370px) {
+    .weather {
+        width: 80vw;
+    }
+    .search h3 {
+        font-size: 80%;
+    }
+    .search form {
+        width: 60vw;
+    }
+    form {
+        display: flex; 
+        justify-content: space-around;
+    }
+    form input:first-child {
+        width: 35vw;
+        height: 3vh;
+        font-size: 70%;
+    }
+    form input:last-child {
+        width: 15vw;
+        font-size: 70%;
+        border: 2px;
+        border-radius: 5px; 
+        border-style: groove; 
+    }
+    .display {
+        width: 80vw;
+    }
 }
