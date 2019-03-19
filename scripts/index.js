@@ -1,29 +1,42 @@
 // Takes user input
 const userInput = document.forms['form-search'];
 
-userInput.addEventListener('submit', function(e){
-    e.preventDefault();
-    const city = userInput.querySelector('input[type="text"]').value;
-    const zip = userInput.querySelector('input[type="text"]').value;
-    // if (userInput !== city.length) {
-    //     alert('Error, search for city not found.')
-    // } else {
-    //     console.log('Search accepted!');
-    // }
-    console.log(`CITY SEARCHED: `, city)
-    console.log(`ZIPCODE: `, zip)
-    // Takes userInput(city) and places it into URL
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zip}&units=imperial&APPID=${OWKey}`;
-    // Fetches URL with the city input
-    fetch(URL)
+function initialize() {
+    userInput.addEventListener('submit', function(e){
+        e.preventDefault();
+        const city = userInput.querySelector('input[type="text"]').value;
+        const zip = userInput.querySelector('input[type="text"]').value;
+        // =========================================//
+        // if statement needed to catch serach error//
+        // =========================================//
+        console.log(`CITY SEARCHED: `, city)
+        console.log(`ZIPCODE: `, zip)
+        // == ==Takes userInput(city) and places it into URL
+        const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zip}&units=imperial&APPID=${OWKey}`;
+        fetch(URL)
         .then(r => r.json())
         .then(weatherInfo)
-        // `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&cnt=7&units=imperial&APPID=$${OWKey}`
-        // .then(forecast)
         .then(displayWeather)
 
-});
 
+        // ===========================//
+        // working on adding forecast //
+        // ===========================//
+        // const FURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=7&units=imperial&APPID=${WFKey}`
+        // fetch(FURL)
+        // .then(r => r.json())
+
+        // const allData = {'URL':{}, 'FURL':{}};
+        // Promise.all([URL,FURL])
+        // .then(weatherObject => {
+        //     allData['URL'] = weatherObject[0]
+        //     allData['FURL'] = weatherObject[1]
+        //     return allData
+            
+        // })
+        // console.log(allData)
+    });
+}
 
 function weatherInfo(obj) {                                         
     console.log(obj)
@@ -32,7 +45,6 @@ function weatherInfo(obj) {
 
     // GRABBING WEATHER
     let mainTemp = obj.main.temp
-
     // let mainTemp = ((obj.main.temp - 273.15) * 9/5 +32).toFixed(1);
 
 
@@ -45,7 +57,7 @@ function weatherInfo(obj) {
     let windSpeed = (obj.wind.speed);
 
     let clouds = (obj.clouds.all)
-    console.log(clouds)
+    // console.log(clouds)
 
     let iconCode  = obj.weather.map(code => {return code.icon})
 
@@ -64,11 +76,11 @@ function weatherInfo(obj) {
 }
 
 
-// function getIcon(icon) {
-//     let code = icon[0]
-//     let iCode = `http://openweathermap.org/img/w/${code}.png`;
-//     return iCode
-// }
+function getIcon(icon) {
+    let code = icon[0]
+    let iCode = `http://openweathermap.org/img/w/${code}.png`;
+    return iCode
+}
 
 function forecast(city) {
     let cityName = city.map(obj[0]);
@@ -149,7 +161,7 @@ function displayWeather(weather) {
     // ======================================
 }
 
-
+initialize();
 
 
 
