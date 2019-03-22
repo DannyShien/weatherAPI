@@ -14,16 +14,22 @@ body {
     display: flex; 
     flex-direction: column;
     align-items: center;
-    width: 40vw;
+    width: 100vw;
     height: 30vh;
     padding: 5px;
     /* outline: 3px solid aliceblue; */
 }
 .weather div:first-child {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;  
+    width: 100vw;
     margin-top: 30px; 
 }
 .title h1 {
     font-size: 200%;
+    height: 40vh;
 }
 .weather div:last-child {
     display: flex; 
@@ -47,18 +53,21 @@ form input:first-child {
     padding-left: 6px;
     border-radius: 5px; 
     border-style: groove;
-    height: 2.8vh; 
+    height: 3.5vh; 
     font-size: 90%;
 }
 form input:last-child {
-    height: 2.8 vw;
+    /* background-color: aqua; */
+    border: 1px;
+    border-radius: 5px; 
+    border-style: groove;
+    width: 6vw; 
 }
-
 
 .display {
     display: flex; 
     flex-direction: column; 
-    width: 50vw;
+    width: 35vw;
     margin-top: 10px; 
     border: 5px;
     border-style: groove; 
@@ -76,7 +85,7 @@ form input:last-child {
     flex-direction: column;
     align-items: center; 
     justify-content: center;
-    width: 20vw;
+    width: 15vw;
 }
 .top-display div:first-child p { 
     text-align: center;
@@ -91,27 +100,38 @@ form input:last-child {
 .top-display div:last-child {
     display: flex; 
     justify-content: center;
-    width: 20vw;
+    width: 15vw;
 }
 .top-display div:last-child img {
-    height: 100px; 
+    height: 100%; 
 }
 
 .bottom-display {
     display: flex; 
     justify-content: space-around;
+    align-items: center; 
     height: 15vh;
 }
 .bottom-display div:first-child {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    width: 20vw;
+    width: 15vw;
+}
+.bottom-display div:first-child p{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 200%;
+    font-weight: 200;
+    height: 12vh;
+    width: 15vw;
 }
 .bottom-display div:last-child {
     display: flex;
     justify-content: space-around;
-    width: 20vw;
+    width: 15vw;
+    height: 12vh;
 }
 .bottom-display div:last-child ul:first-child {
     display: flex; 
@@ -123,45 +143,46 @@ form input:last-child {
     flex-direction: column;
     justify-content: space-evenly;
 }
-.bottom-display div p{
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 200%;
-    font-weight: 200;
-    /* background-color: white; */
-    width: 15vw;
-    height: 10vh;
-}
 .bottom-display ul {
     list-style-type: none;
-
 }
 .bottom-display ul li {
     font-size: 80%;
 }
 
-@media only screen and (max-width: 370px) {
+/* @media screen and (min-width: 380px) {
     .weather {
-        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        width: 100vw; 
     }
+    .weather div:first-child h1 {
+        display: flex; 
+        justify-content: center;
+        font-size: 160%;
+        width: 100vw;
+        background-color: aliceblue;
+    }
+   .search {
+       width: 70vw;
+   }
     .search h3 {
         font-size: 80%;
-    }
-    .search form {
-        width: 60vw;
     }
     form {
         display: flex; 
         justify-content: space-around;
+        background-color: aliceblue;
+        width: 60vw;
     }
     form input:first-child {
         width: 35vw;
-        height: 3vh;
+        height: 3.8vh;
         font-size: 70%;
     }
     form input:last-child {
         width: 15vw;
+        height: 4vh;
         font-size: 70%;
         border: 2px;
         border-radius: 5px; 
@@ -170,4 +191,50 @@ form input:last-child {
     .display {
         width: 80vw;
     }
+    .top-display div:first-child {
+        width: 25vw;
+    }
+    .bottom-display div:first-child {
+        width: 25vw;
+        height: 10vh;
+    }
+    .bottom-display div:first-child p {
+        width: 25vw;
+        font-size: 120%;
+    }
+    .bottom-display div:last-child {
+        width: 35vw;
+    }
+    .bottom-display div:last-child ul {
+        height: 10vh;
+        font-size: 80%;
+    }
 }
+@media screen and (min-width: 780px) {
+    .weather div:last-child {
+        width: 50vw;
+    }
+    .search form {
+        width: 45vw;
+    }
+    form input:first-child {
+        width: 25vw;
+    }
+    form input:last-child {
+        width: 10vw;
+    }
+    .top-display div:last-child img {
+        width: 10w;
+    }
+    .bottom-display div:first-child p {
+        width: 20vw;
+        height: 12vh; 
+        font-size: 160%;
+    }
+    .bottom-display div:last-child{
+        display: flex; 
+        justify-content: space-evenly; 
+        width: 23vw;
+        height: 12vh;
+    }
+} */
