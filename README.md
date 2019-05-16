@@ -8,3 +8,5 @@ With this mini project, I built another simple weather application to test mysel
 This is a simple weather application calling from the openWeatherSourse API. 
 - User has an input field that they can use to search for a specific city's weather. Once the search is entered, the input value  will fetch the API and return a jSON value for that city. 
 - The jSON value returns back and displays particular information such as, the city's name, weather condition, main temperature, condition icon, humidity, wind and cloudiness.  
+
+<img width="828" alt="Screen Shot 2019-05-16 at 2 26 51 PM" src="https://user-images.githubusercontent.com/29678190/57879630-e89a7500-77ea-11e9-83d3-25b835b188f2.png">
